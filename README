@@ -1,0 +1,61 @@
+/************************************************************
+* README
+* Tyler Hoang
+************************************************************/
+Required Files:
+MineSweeperGUIRunner.java
+MineSweeper.java
+Game.java
+Advanced.java
+Intermediate.java
+Beginner.java
+1.png
+2.png
+3.png
+4.png
+5.png
+6.png
+Landmine.png
+flag.png
+click.wav
+win.wav
+lose.wav
+
+***********************************************************
+Usage: Launch the JAR file
+***********************************************************
+
+Instructions:
+1) User will start the program and will be asked to input his or her name.
+2) User will continue through the setup process by selecting their desired difficulty and their desired color choice.
+3) The user will come across a pop up message that tells them which square is recommended to click on first.
+4) The user will be brought to the game screen. He or she can now click on the recommended square or click on any square and begin playing.
+5) Every numbered square tells the user how many mines are directly around that specific square.
+6) If the user feels that a certain square has a mine, they can place a flag on that particular square by clicking the right mouse button. A flag can easily be removed at any point simply by a right click on the flag.
+7) The user wins if every button (except for mines) has been enabled. No mines could have been selected.
+8) If the user clicks on a MINE, the user loses, and the user is put through a reset process.
+9) If at any time the user wants to reset during gameplay, they can click on the rest button on the top left.
+
+Overview: 
+This is the classic MineSweeper game with some variations and customizations. Due to the algorithm used to create the game, certain elements needed to be added in order for the game to be playable.
+The algorithm goes as such:
+1) Depending on the size of the board chosen, determine the number of mines to be put on the board (different sizes garner a different amount of mines).
+2) Randomly dispurse the mines on the board.
+3) A random, empty (non-mine) square is chosen for the user to click on to start the game.
+- A clear difference is present here with the classic MineSweeper game. For the classic MineSweeper game, the board is created AFTER the first click by the user. No matter what square the player chooses at the start, it will be a safe, non-mine square. This algoirthm is the direct opposite. The board is created prior to the player's first turn, and therefore a safe spot must be chosen for the user in order to start the game.
+
+In order to generate mines randomly on a respective board:
+An ArrayList listOfMines is created to add integers which will determine the coordinates of buttonNumbers. Since they add integers by thousands, they can store the dimensions for a matrix up to a maximum of 999x999 pixels. The next for loop creates an integer which receives a random number from 0 to the ArrayList's size. This integer represents the index of listOfMines. During the loop, mines are being added to buttonNumbers to represent the location of the mines. The for loop runs until it stops at the number of mines to be created. The next nested for loop assigns the number of mines on the buttons that are next to a mine.
+
+When a square with 0 mines surrounding it (also known as a clear square) is clicked on, all surrounding empty squares must also be activated.
+This is done via a recursive method that takes in an ArrayList with a button that has a value of 0. The method checks the neighboring buttons to see if they are zeros as well. It calls the clearHelper method in order to set all the zeros to clear, disabled buttons. The base case of this recursive method is when the size of the parameter ArrayList is equal to 0. Clear buttons that are diagonally, horizontally, or vertically across other clear buttons are set to a white tile and are disabled.
+
+If the player wins the game:
+The program checks if all the buttons, except for mines, have been disabled. As for the mines, it checks if none of them have been clicked on. If successful, it will display a win message, along with a reset process.
+
+If the player loses the game:
+The program displays the lost board. All un-clicked buttons are disabled. All mines are shown on the board. The board is then disabled and the user must either exit the program or click the reset button. The nested for loop goes throughout buttonNumbers to see which tiles are numbered, or cleared, and disables them. It then searches throughout the matrix to see which have the value of -1, which represents a mine. Places where the matrix has a value of -1 corresponds to the coordinates of the buttons matrix, where the icon of a mine replaces the default button.
+
+
+
+ 

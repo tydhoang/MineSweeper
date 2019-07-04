@@ -13,8 +13,7 @@ import java.awt.event.*;
  * specifics in the online version, with additional features such as the ability
  * to change the color, win/loss count, and winning/losing messages.
  * 
- * @author Tyler Hoang, Thomas Wei, Bryan Trinh, Kevin Lam, Alvin Phan, Andrew
- *         Nguyen period #4
+ * @author Tyler Hoang
  */
 public abstract class MineSweeper implements ActionListener, MouseListener,
 		Game {

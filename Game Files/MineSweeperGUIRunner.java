@@ -3,7 +3,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- * @author Tyler Hoang, Thomas Wei, Kevin Lam, Andrew Nguyen period #4
+ * @author Tyler Hoang
  */
 public class MineSweeperGUIRunner {
 	private static String name;
